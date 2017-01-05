@@ -9,7 +9,7 @@ The [vertical labels in this visualization](https://github.com/dbetebenner/D3_01
 
 ## Results
 
-* [Source Code Gist](https://gist.github.com/dbetebenner/12ec7b09b1385bf171b282542d9072a7)
-* [Bl.ocks.org View](http://bl.ocks.org/dbetebenner/12ec7b09b1385bf171b282542d9072a7)
-* [Blockbuilder.org View](http://blockbuilder.org/dbetebenner/12ec7b09b1385bf171b282542d9072a7)
+* [Source Code Gist](https://gist.github.com/dbetebenner/77403b4fe2441f5e20e76cc652f3aa1b)
+* [Bl.ocks.org View](http://bl.ocks.org/dbetebenner/77403b4fe2441f5e20e76cc652f3aa1b)
+* [Blockbuilder.org View](http://blockbuilder.org/dbetebenner/77403b4fe2441f5e20e76cc652f3aa1b)
 * [Github Pages View](https://dbetebenner.github.io/D3_01052017/)
