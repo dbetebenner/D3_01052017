@@ -4,7 +4,7 @@
 
 New Year's Resolution for 2017: Make a D3 Block a day to teach myself D3. This is Number 5. This example
 builds on [yesterday's bar chart](https://github.com/dbetebenner/D3_01042017) by wiring up the buttons
-that highlight  elementary, middle and high schools. The chart also adds in some CSS hover effects. 
+that highlight  elementary, middle and high schools (which wasn't easy --- for me). The chart also adds in some CSS hover effects. 
 
 ## Results
 
