@@ -39,11 +39,11 @@ var svg = d3.select("body").append("svg")
 			  .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 function render(category) {
-// get the data
+// Get the data
 	d3.csv("school_proficiency_data.csv", function(error, data) {
 	  if (error) throw error;
 
-		// format the data
+		// Format the data
 		data.forEach(function(d) {
 	        d.percent_proficient = +d.percent_proficient;
 		});
@@ -51,25 +51,21 @@ function render(category) {
     
 		// Scale the range of the data in the domains
 		x.domain(data.map(function(d) { return d.school_name; }));
-//		y.domain([0, d3.max(data, function(d) { return d.percent_proficient; })]);
     y.domain([0, 100]);
 
-		// append the rectangles for the bar chart
+		// Append the rectangles for the bar chart
 		svg.selectAll("rect")
 		    .data(data)
-			  .enter().append("rect")
-				.attr("class", "rect")
-				.attr("x", function(d) { return x(d.school_name); })
+        .enter().append("rect")
+        .attr("x", function(d) { return x(d.school_name); })
 				.attr("width", x.bandwidth())
 				.attr("y", function(d) { return y(d.percent_proficient); })
 				.attr("height", function(d) { return height - y(d.percent_proficient); });
-    
-    svg.selectAll("rect")
-        .filter(function (d, i) {
-             return d.emh_level==category;
-     })
-              .classed("selected", true);
 
+    // Set style on ALL data
+    svg.selectAll("rect")
+        .attr("class", "rect");
+    
 	  // Add vertical labels to bars
 		svg.selectAll("text")
     	 .data(data)
@@ -79,13 +75,13 @@ function render(category) {
        .attr("dy", -30) // padding-right
        .attr('transform', function(d) { return 'translate(' + x(d.school_name) + ',' + y(d.percent_proficient) + ') rotate(90)'})
        .text(function(d) {return d.school_name});
-   
-    // add the y Axis
+    
+    // Add the y Axis
   	svg.append("g")
         .call(d3.axisLeft(y))
         .attr("class", "yaxis");
   
- 		// text label for the y axis
+ 		// Add text label for the y axis
   	svg.append("text")
     	  .attr("transform", "rotate(-90)")
     	  .attr("y", 5 - margin.left)
@@ -94,7 +90,12 @@ function render(category) {
     	  .style("text-anchor", "middle")
   			.style("font-family", "Helvetica Neue")
   	    .text("Percent Proficient 2016");
-    
+
+    svg.selectAll("rect")
+        .filter(function (d, i) {
+             return d.emh_level==category;
+     })
+              .classed("selected", true);    
   });
 }
 
