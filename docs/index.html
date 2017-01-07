@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
+<head>
+    <title>D3 Block-a-Day: Day 5, January 5, 2017</title>
 	<style> /* set the CSS */
 
 		body { font: 20px Helvetica Neue; background: #fff}
@@ -12,6 +14,7 @@
     .selected { fill: #f08080; stroke: black; stroke-width: 1; }
     .selected:hover { fill: #e94848; stroke: black; stroke-width: 1; }
 	</style>
+</head>
 <body>
 
 <script src="//d3js.org/d3.v4.min.js"></script>
@@ -48,7 +51,7 @@ function render(category) {
 	        d.percent_proficient = +d.percent_proficient;
 		});
 
-    
+
 		// Scale the range of the data in the domains
 		x.domain(data.map(function(d) { return d.school_name; }));
     y.domain([0, 100]);
@@ -65,7 +68,7 @@ function render(category) {
     // Set style on ALL data
     svg.selectAll("rect")
         .attr("class", "rect");
-    
+
 	  // Add vertical labels to bars
 		svg.selectAll("text")
     	 .data(data)
@@ -75,12 +78,12 @@ function render(category) {
        .attr("dy", -30) // padding-right
        .attr('transform', function(d) { return 'translate(' + x(d.school_name) + ',' + y(d.percent_proficient) + ') rotate(90)'})
        .text(function(d) {return d.school_name});
-    
+
     // Add the y Axis
   	svg.append("g")
         .call(d3.axisLeft(y))
         .attr("class", "yaxis");
-  
+
  		// Add text label for the y axis
   	svg.append("text")
     	  .attr("transform", "rotate(-90)")
@@ -95,7 +98,7 @@ function render(category) {
         .filter(function (d, i) {
              return d.emh_level==category;
      })
-              .classed("selected", true);    
+              .classed("selected", true);
   });
 }
 
